@@ -1,6 +1,6 @@
-NAME = replace
+NAME = Harl
 SRC = main.cpp \
-		Replace.cpp
+		Harl.cpp
 
 CXX = c++
 CXXFLAGS= -Wall -Wextra -Werror -std=c++98
