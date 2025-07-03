@@ -19,6 +19,8 @@ define loading_bar
 	printf "]\n";
 endef
 
+
+
 all: $(NAME)
 
 $(NAME):

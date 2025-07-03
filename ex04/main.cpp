@@ -2,6 +2,8 @@
 
 int main(int argc, char **argv)
 {
+	std::string	replaced_str;
+
 	if (argc == 4)
 	{
 		if (argv[1][0] == '\0' || argv[2][0] == '\0' || argv[3][0] == '\0')
@@ -16,7 +18,13 @@ int main(int argc, char **argv)
 			std::cout << "\033[33mInfile unable to open!\033[0m" << std::endl;
 			return (-1);
 		}
-		std::string replaced_str = rep.replace_func(rep.read_from_file(in));
+		if (!std::getline(in, replaced_str))
+		{
+			std::cout << "\033[31mFile is empty!\033[0m" << std::endl;
+			return (-1);
+		}
+		in.seekg(0, std::ios::beg);
+		replaced_str = rep.replace_func(rep.read_from_file(in));
 		rep.outfile(replaced_str);
 		in.close();
 		std::cout << "\033[32mRelaced to a new File!\033[0m" << std::endl;
